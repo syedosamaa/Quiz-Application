@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuiz | The Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+      <!-- Section 1 Form Wraper -->
+
+       <!-- <section class="form-wrapper">
+          <div class="headings">
+            <h1>Welcome to  CodeQuiz!</h1>
+            <p class="page1-para">Before we begin, tell us little about yourself</p>
+         </div>   
+           <div class="input-fileds">
+              <input class="input-field" type="text" id="first-name" placeholder="Type your First Name">
+              <input class="input-field" type="text" id="last-name" placeholder="Type your Last Name">
+              <input class="input-field" type="email" id="email" placeholder="Type your Email">
+              <input class="input-field" type="text" id="roll-no" placeholder="Type your Roll Number">
+               <span class="quiz-names">Select Quiz :</span>
+               <div class="radio-section selected-quiz" id="quizType">
+              <input class="q-select" type="radio" name="quiz-type" id="HTML" value="HTML" onclick="htmlQuest()"> HTML
+              <input class="q-select" type="radio" name="quiz-type" id="CSS" value="CSS" onclick="cssQuest()">CSS
+              <input class="q-select" type="radio" name="quiz-type" id="JavaScript" value="javaScript" onclick="jsQuest()">JavaScript
+              </div> 
+           </div>
+           <button class="btn-submit" onclick="formValidate()">Submit</button>
+      </section>  -->
+
+         <!-- Section 2 User data -->
+
+           <!-- <section class="start-screen">
+               <h1 class="page2-h1">Ready to Begin</h1>
+               <p class="page2-para">Prepare yourself, it's time to challange your skills</p>
+               <div class="para-handle">
+               <p class="set-para">Name : <span id="para-name"></span></p>
+               <p class="set-para">Email : <span id="para-email"></span></p>
+               <p class="set-para">Roll Number : <span id="para-roll-no"></span></p>
+               <p class="set-para">Quiz : <span id="para-quiz-select"></span></p>
+              </div>
+             <button class="btn-start">Start Quiz</button>
+           </section> -->
+
+           <!-- section 3 -->
+
+              <section class="quiz-page">
+               <div class="head">
+                  <h2>Question : <span class="q-nmbr">1</span>/<span class="ttl-questions">10</span></h2>
+                  <p id="question"></p>
+               </div>
+               <ul id="options">
+                <li>20</li>
+                <li>20</li>
+                <li>20</li>
+                <li>20</li>
+               </ul>
+              </section>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="app.js"></script>
+</html>
