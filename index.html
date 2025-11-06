@@ -10,7 +10,7 @@
 
       <!-- Section 1 Form Wraper -->
 
-       <!-- <section class="form-wrapper">
+        <section class="form-wrapper">
           <div class="headings">
             <h1>Welcome to  CodeQuiz!</h1>
             <p class="page1-para">Before we begin, tell us little about yourself</p>
@@ -24,15 +24,15 @@
                <div class="radio-section selected-quiz" id="quizType">
               <input class="q-select" type="radio" name="quiz-type" id="HTML" value="HTML" onclick="htmlQuest()"> HTML
               <input class="q-select" type="radio" name="quiz-type" id="CSS" value="CSS" onclick="cssQuest()">CSS
-              <input class="q-select" type="radio" name="quiz-type" id="JavaScript" value="javaScript" onclick="jsQuest()">JavaScript
+              <input class="q-select" type="radio" name="quiz-type" id="JavaScript" value="JavaScript" onclick="jsQuest()">JavaScript
               </div> 
            </div>
-           <button class="btn-submit" onclick="formValidate()">Submit</button>
-      </section>  -->
+           <button class="btn-submit" onclick="formValidate()">SUBMIT</button>
+      </section>  
 
          <!-- Section 2 User data -->
 
-           <!-- <section class="start-screen">
+           <section class="start-screen">
                <h1 class="page2-h1">Ready to Begin</h1>
                <p class="page2-para">Prepare yourself, it's time to challange your skills</p>
                <div class="para-handle">
@@ -41,22 +41,27 @@
                <p class="set-para">Roll Number : <span id="para-roll-no"></span></p>
                <p class="set-para">Quiz : <span id="para-quiz-select"></span></p>
               </div>
-             <button class="btn-start">Start Quiz</button>
-           </section> -->
+             <button class="btn-start" onclick="startQuiz()">START QUIZ</button>
+           </section> 
 
            <!-- section 3 -->
 
               <section class="quiz-page">
-               <div class="head">
-                  <h2>Question : <span class="q-nmbr">1</span>/<span class="ttl-questions">10</span></h2>
+               
+                  <h2 class="quest-count">Question : <span class="q-nmbr"></span> / <span class="ttl-questions"></span></h2>
+                 
+                  <p class="time-left">Time Left :<span id="timer">30s</span></p>
+         
                   <p id="question"></p>
-               </div>
+               
                <ul id="options">
-                <li>20</li>
-                <li>20</li>
-                <li>20</li>
-                <li>20</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
                </ul>
+
+               <button class="nextBtn" onclick="nextQuestion()">NEXT</button>
               </section>
 
 

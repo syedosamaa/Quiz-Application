@@ -1,6 +1,6 @@
 
     // ? HTML Questions //  
-
+      
 function htmlQuest(){
 
     let htmlQuestions = [
@@ -116,9 +116,9 @@ function htmlQuest(){
     answer:"<!-- Comment -->"
   }
     ]
-
-    
-}
+  
+    return htmlQuestions;
+} 
 
 
 //? CSS Questions //
@@ -238,6 +238,8 @@ function cssQuest(){
     answer:"."
   }
     ]
+
+    return cssQuestions;
 }
 
 //? JavaScript Questions //
@@ -245,118 +247,120 @@ function cssQuest(){
 function jsQuest(){
 
     let jsQuestions = [
-
-          {
+  {
     num:1,
-    question:"CSS stands for",
+    question:"JavaScript is a ___ language",
     Option:{
-      a:"Cascading Style Sheets",
-      b:"Creative Style System",
-      c:"Computer Styling Sheets",
-      d:"Colorful Style Syntax"
+      a:"Programming",
+      b:"Markup",
+      c:"Styling",
+      d:"Database"
     },
-    answer:"Cascading Style Sheets"
+    answer:"Programming"
   },
   {
     num:2,
-    question:"Which HTML tag is used to link an external CSS file?",
+    question:"Which symbol is used for comments in JavaScript?",
     Option:{
-      a:"<style>",
-      b:"<link>",
-      c:"<css>",
-      d:"<script>"
+      a:"//",
+      b:"<!-- -->",
+      c:"**",
+      d:"##"
     },
-    answer:"<link>"
+    answer:"//"
   },
   {
     num:3,
-    question:"Which property is used to change the text color in CSS?",
+    question:"Which keyword is used to declare a variable in JavaScript?",
     Option:{
-      a:"font-color",
-      b:"color",
-      c:"text-color",
-      d:"font-style"
+      a:"var",
+      b:"int",
+      c:"string",
+      d:"declare"
     },
-    answer:"color"
+    answer:"var"
   },
   {
     num:4,
-    question:"Which property controls the size of text?",
+    question:"Which method is used to print something on the console?",
     Option:{
-      a:"font-size",
-      b:"text-size",
-      c:"font-style",
-      d:"text-font"
+      a:"print()",
+      b:"log()",
+      c:"console.log()",
+      d:"document.write()"
     },
-    answer:"font-size"
+    answer:"console.log()"
   },
   {
     num:5,
-    question:"Which property is used to change the background color?",
+    question:"Which operator is used to assign a value to a variable?",
     Option:{
-      a:"color",
-      b:"background",
-      c:"background-color",
-      d:"bgcolor"
+      a:"-",
+      b:"=",
+      c:"*",
+      d:"=="
     },
-    answer:"background-color"
+    answer:"="
   },
   {
     num:6,
-    question:"Which CSS property is used to make text bold?",
+    question:"What will 'typeof 42' return?",
     Option:{
-      a:"text-bold",
-      b:"font-bold",
-      c:"font-weight",
-      d:"bold"
+      a:"number",
+      b:"string",
+      c:"boolean",
+      d:"object"
     },
-    answer:"font-weight"
+    answer:"number"
   },
   {
     num:7,
-    question:"How can you center text inside an element?",
+    question:"Which function is used to display an alert box?",
     Option:{
-      a:"align: center",
-      b:"text-align: center",
-      c:"font-align: center",
-      d:"margin: auto"
+      a:"alert()",
+      b:"prompt()",
+      c:"confirm()",
+      d:"show()"
     },
-    answer:"text-align: center"
+    answer:"alert()"
   },
   {
     num:8,
-    question:"Which property is used to change the font of text?",
+    question:"Which method joins array elements into a single string?",
     Option:{
-      a:"font-family",
-      b:"font-type",
-      c:"font-style",
-      d:"text-font"
+      a:"concat()",
+      b:"join()",
+      c:"merge()",
+      d:"combine()"
     },
-    answer:"font-family"
+    answer:"join()"
   },
   {
     num:9,
-    question:"Which property is used to add space inside an element?",
+    question:"Which keyword is used to define a constant variable?",
     Option:{
-      a:"margin",
-      b:"padding",
-      c:"border",
-      d:"spacing"
+      a:"var",
+      b:"let",
+      c:"const",
+      d:"static"
     },
-    answer:"padding"
+    answer:"const"
   },
   {
     num:10,
-    question:"Which symbol is used to select a class in CSS?",
+    question:"What does 'NaN' stand for in JavaScript?",
     Option:{
-      a:"#",
-      b:".",
-      c:"$",
-      d:"@"
+      a:"Not a Number",
+      b:"No any Number",
+      c:"Notable Numeric",
+      d:"Null as Number"
     },
-    answer:"."
+    answer:"Not a Number"
   }
-    ]
+]
+
+
+   return jsQuestions;
 }
 
 
@@ -364,6 +368,7 @@ function jsQuest(){
 
 let userDetails = document.querySelector('.form-wrapper');
 let startScreen = document.querySelector('.start-screen');
+let quizPage = document.querySelector('.quiz-page');
 
 //? Get all input fields //
 
@@ -371,6 +376,19 @@ let inpFName = document.getElementById('first-name');
 let inpLName = document.getElementById('last-name');
 let inpEmail = document.getElementById('email');
 let inpRoll = document.getElementById('roll-no');
+
+//? Get Quesstions//
+
+let toltalQuest = document.querySelector('.ttl-questions');
+let questionText = document.getElementById('question');
+let optionList = document.getElementById('options').getElementsByTagName('li');
+
+let currentQuiz = [];
+let currentIndex = 0;
+let correctAns = 0;
+let wrongAns = 0;
+
+let nxtBtn = document.querySelector('.nextBtn');
 
 
 //? Function for start quiz //
@@ -385,6 +403,7 @@ let selectedQuiz = document.querySelector('input[name="quiz-type"]:checked');
       icon: 'warning',
       title: 'Incomplete Form',
       text: 'Please fill all fields and select a quiz.',
+      confirmButtonColor: "#3498db",
     });
     return false
     
@@ -395,6 +414,7 @@ let selectedQuiz = document.querySelector('input[name="quiz-type"]:checked');
       icon: 'error',
       title: 'Invalid Email',
       text: 'Please enter a valid email address.',
+      confirmButtonColor: "#3498db",
     })
     return false;
       
@@ -414,5 +434,101 @@ let selectedQuiz = document.querySelector('input[name="quiz-type"]:checked');
  document.getElementById('para-roll-no').innerText = inpRoll.value;
  document.getElementById('para-quiz-select').innerText = selectedQuiz.value;
 
+ }
+
+
+ function startQuiz(){
+ userDetails.style.display = "none"
+  startScreen.style.display = "none";
+  quizPage.style.display = "flex";
+
+
+  let selectedQuiz = document.querySelector('input[name="quiz-type"]:checked');
+
+  let questions = 0;
+
+  if (selectedQuiz.value === "HTML") {
+     questions = htmlQuest();
+  }
+  else if (selectedQuiz.value === "CSS") {
+     questions = cssQuest();
+  }
+ else if (selectedQuiz.value === "JavaScript") {
+     questions = jsQuest();
+  }
+    
+    currentQuiz = questions;
+
+  document.querySelector(".ttl-questions").innerText = questions.length;
+
+   showQuestion(questions, 0);
+ }
+
+ function showQuestion(questions, index){
+
+    let q = questions[index];
+    
+
+     questionText.innerText = q.question ;
+
+     
+
+    let Opts = q.Option;
+
+    optionList[0].innerText  = "a . " + Opts.a;
+    optionList[1].innerText = "b . " + Opts.b;
+    optionList[2].innerText = "c . " + Opts.c;
+    optionList[3].innerText = "d . " + Opts.d;
+
+  document.querySelector(".q-nmbr").innerText = q.num;
+
+    for(let li of optionList){
+      li.classList.remove("correctAns","wrongAns","disableli");
+    li.setAttribute("onclick" , "selectOpt(this)");
+ } 
+    
+     nxtBtn.style.display = "none";
+
+}
+
+  function selectOpt(ele){
+
+      let currentQ = currentQuiz[currentIndex];
+      let allOptions = document.querySelectorAll("#options li");
+
+      if(ele.innerText.includes(currentQ.answer)){
+
+        ele.classList.add("correctAns");
+        correctAns++;
+      } else{
+          ele.classList.add("wrongAns")
+          wrongAns++;
+
+          for (let li of allOptions){
+            if(li.innerText.includes(currentQ.answer)){
+              li.classList.add("correctAns");
+            }
+          }
+      }
+        
+          for (let li of allOptions) {
+          li.classList.add("disableli");
+         }
+         
+          document.querySelector(".nextBtn").style.display = "block";
     }
+
+    function nextQuestion() {
+  currentIndex++;
+  if (currentIndex < currentQuiz.length) {
+    showQuestion(currentQuiz, currentIndex);
+  } else {
+    Swal.fire({
+      icon: 'success',
+      title: 'Quiz Complete!',
+      text: `Correct: ${correctAns}, Wrong: ${wrongAns}`,
+      confirmButtonColor: "#3498db",
+    });
+  }
+}
 
