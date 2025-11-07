@@ -233,10 +233,56 @@ p#question{
   transition: 0.3s;
   background-color: #49a7e7;
 }
-.start-screen{
+.start-screen, .quiz-page, .result-page{
     display: none;
 }
 
-.quiz-page{
-    display: none;
+/* result page */
+
+.result-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0px;
+  background-color: transparent;
+}
+
+.result-card {
+  background: #fff;
+  width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.result-left h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.1;
+}
+
+.result-right p {
+  font-size: 15px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.result-right span {
+  font-weight: 600;
+  color: #111;
+}
+
+.pass-para {
+  color: #0a9f3a;
+  font-weight: 600;
+}
+
+.fail-para {
+  color: #d63031;
+  font-weight: 600;
 }
